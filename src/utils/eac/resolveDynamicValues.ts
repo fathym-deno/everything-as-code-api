@@ -1,4 +1,4 @@
-import { EaCMetadataBase, EverythingAsCode } from "@fathym/eac";
+import { EaCMetadataBase, EverythingAsCode } from "../../src.deps.ts";
 import jsonpath from "npm:jsonpath";
 import { loadConnections } from "./loadConnections.ts";
 

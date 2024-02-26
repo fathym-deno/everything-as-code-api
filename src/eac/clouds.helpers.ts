@@ -1,5 +1,3 @@
-import Handlebars from "@handlebars";
-import { merge } from "@fathym/common";
 import {
   EaCCloudAsCode,
   EaCCloudAzureDetails,
@@ -8,9 +6,11 @@ import {
   EaCCloudResourceGroupAsCode,
   EaCCloudResourceGroupDetails,
   EverythingAsCodeClouds,
+  Handlebars,
   loadAzureCloudCredentials,
   loadMainAzureCredentials,
-} from "@fathym/eac";
+  merge,
+} from "../src.deps.ts";
 import { BillingManagementClient } from "npm:@azure/arm-billing";
 import {
   Deployment,

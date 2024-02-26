@@ -1,4 +1,4 @@
-import { EaCMetadataBase } from "@fathym/eac";
+import { EaCMetadataBase } from "../../src.deps.ts";
 
 export type EaCHandlerConnectionsResponse = {
   Model: EaCMetadataBase;

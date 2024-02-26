@@ -1,11 +1,11 @@
-import { merge } from "@fathym/common";
 import {
   EaCHandler,
   EaCHandlers,
   EaCMetadataBase,
   EverythingAsCode,
   hasKvEntry,
-} from "@fathym/eac";
+  merge,
+} from "../../src.deps.ts";
 import { EaCHandlerCheckRequest } from "../../api/models/EaCHandlerCheckRequest.ts";
 import { EaCHandlerCheckResponse } from "../../api/models/EaCHandlerCheckResponse.ts";
 import {

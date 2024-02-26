@@ -1,4 +1,4 @@
-import { delay } from "$std/async/delay.ts";
+import { delay } from "../../src.deps.ts";
 import { EaCStatus } from "../../api/models/EaCStatus.ts";
 import { EaCStatusProcessingTypes } from "../../api/models/EaCStatusProcessingTypes.ts";
 import { EaCServiceClient } from "../../eac/client/EaCServiceClient.ts";

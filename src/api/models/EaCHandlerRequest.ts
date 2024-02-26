@@ -1,4 +1,4 @@
-import { EaCMetadataBase, EverythingAsCode } from "@fathym/eac";
+import { EaCMetadataBase, EverythingAsCode } from "../../src.deps.ts";
 
 export type EaCHandlerRequest = {
   CommitID: string;

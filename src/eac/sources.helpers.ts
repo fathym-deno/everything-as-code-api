@@ -9,12 +9,12 @@ import {
   EverythingAsCode,
   EverythingAsCodeSources,
   getOrCreateRepository,
+  Handlebars,
   loadOctokit,
   loadSecretClient,
   tryGetRepository,
-} from "@fathym/eac";
+} from "../src.deps.ts";
 import sodium from "@sodium";
-import Handlebars from "@handlebars";
 import { Buffer } from "node:buffer";
 import { encodeBase64 } from "$std/encoding/base64.ts";
 

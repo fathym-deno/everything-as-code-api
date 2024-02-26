@@ -1,4 +1,4 @@
-import { loadJwtConfig } from "@fathym/eac";
+import { loadJwtConfig } from "../../src.deps.ts";
 import { EaCAzureServiceClient } from "./EaCAzureServiceClient.ts";
 import { EaCDataLakeServiceClient } from "./EaCDataLakeServiceClient.ts";
 import { EaCExplorerServiceClient } from "./EaCExplorerServiceClient.ts";

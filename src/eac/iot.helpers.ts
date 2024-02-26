@@ -4,7 +4,7 @@ import {
   EaCDeviceDetails,
   EaCIoTAsCode,
   loadAzureCloudCredentials,
-} from "@fathym/eac";
+} from "../src.deps.ts";
 import { IotHubClient } from "npm:@azure/arm-iothub";
 import { Registry as IoTRegistry } from "npm:azure-iothub";
 import { EnsureIoTDevicesResponse } from "../api/models/EnsureIoTDevicesResponse.ts";

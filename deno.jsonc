@@ -30,9 +30,8 @@
   "imports": {
     "@fathym/common": "https://deno.land/x/fathym_common@v0.0.158/mod.ts",
     "@fathym/eac": "https://deno.land/x/fathym_everything_as_code@v0.0.355/mod.ts",
-    "@fathym/eac/fresh": "https://deno.land/x/fathym_everything_as_code_fresh@v0.0.6-integration/mod.ts",
+    "@fathym/eac/fresh": "https://deno.land/x/fathym_everything_as_code_fresh@v0.0.9-integration/mod.ts",
     "$fresh/": "https://deno.land/x/fresh@1.6.3/",
-    "@handlebars": "npm:handlebars/dist/handlebars.min.js",
     "preact": "https://esm.sh/preact@10.19.2",
     "preact/": "https://esm.sh/preact@10.19.2/",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.3.1",
