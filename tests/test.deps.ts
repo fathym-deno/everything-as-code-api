@@ -1,6 +1,6 @@
 import "$std/dotenv/load.ts";
-import * as parse from "npm:pdf-parse";
-import * as azureSearch from "npm:@azure/search-documents";
+import * as _parse from "npm:pdf-parse";
+import * as _azureSearch from "npm:@azure/search-documents";
 export { assert, assertEquals } from "$std/testing/asserts.ts";
 export {
   AzureChatOpenAI,
@@ -31,7 +31,7 @@ export {
 export { RunnableLambda } from "npm:@langchain/core/runnables";
 export { IterableReadableStream } from "npm:@langchain/core/utils/stream";
 export { convertToOpenAIFunction } from "npm:@langchain/core/utils/function_calling";
-export { PDFLoader } from "npm:langchain/document_loaders/fs/pdf";
+// export { PDFLoader } from "npm:langchain/document_loaders/fs/pdf";
 export { END, StateGraph } from "npm:@langchain/langgraph";
 export { ToolExecutor } from "npm:@langchain/langgraph/prebuilt";
 export { ChatOpenAI, OpenAI, OpenAIEmbeddings } from "npm:@langchain/openai";

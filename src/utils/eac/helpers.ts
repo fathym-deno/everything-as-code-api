@@ -1,7 +1,11 @@
 import { merge } from "@fathym/common";
-import { SecretClient } from "npm:@azure/keyvault-secrets";
-import { paramCase } from "$case";
-import { EaCHandlers } from "../../api/EaCHandlers.ts";
+import {
+  EaCHandler,
+  EaCHandlers,
+  EaCMetadataBase,
+  EverythingAsCode,
+  hasKvEntry,
+} from "@fathym/eac";
 import { EaCHandlerCheckRequest } from "../../api/models/EaCHandlerCheckRequest.ts";
 import { EaCHandlerCheckResponse } from "../../api/models/EaCHandlerCheckResponse.ts";
 import {
@@ -15,19 +19,10 @@ import {
 } from "../../api/models/EaCHandlerResponse.ts";
 import { EaCStatus } from "../../api/models/EaCStatus.ts";
 import { EaCStatusProcessingTypes } from "../../api/models/EaCStatusProcessingTypes.ts";
-import { EaCMetadataBase } from "../../eac/EaCMetadataBase.ts";
-import { EverythingAsCode } from "../../eac/EverythingAsCode.ts";
-import { hasKvEntry, waitOnProcessing } from "../deno-kv/helpers.ts";
-import { EaCHandler } from "../../eac/EaCHandler.ts";
 import { EaCHandlerConnectionsRequest } from "../../api/models/EaCHandlerConnectionsRequest.ts";
 import { EaCHandlerConnectionsResponse } from "../../api/models/EaCHandlerConnectionsResponse.ts";
-import {
-  EaCCloudAzureDetails,
-  isEaCCloudAzureDetails,
-} from "../../eac/modules/clouds/EaCCloudAzureDetails.ts";
-import { loadMainSecretClient } from "../../services/azure/key-vault.ts";
-import { EaCCloudDetails } from "../../eac/modules/clouds/EaCCloudDetails.ts";
 import { EaCCommitRequest } from "../../api/models/EaCCommitRequest.ts";
+import { waitOnProcessing } from "./waitForStatus.ts";
 
 export async function callEaCHandler<T extends EaCMetadataBase>(
   loadEac: (entLookup: string) => Promise<EverythingAsCode>,
@@ -131,7 +126,7 @@ export async function callEaCHandlerCheck(
   jwt: string,
   req: EaCHandlerCheckRequest,
 ): Promise<EaCHandlerCheckResponse> {
-  const handler = handlers[req.Type!];
+  const handler = handlers[req.Type!]!;
 
   req.ParentEaC = req.EaC?.ParentEnterpriseLookup
     ? await loadEaC(req.EaC.ParentEnterpriseLookup)
@@ -182,29 +177,6 @@ export async function callEaCHandlerConnections(
   }
 }
 
-export async function deconstructCloudDetailsSecrets(
-  details: EaCCloudDetails | undefined,
-): Promise<EaCCloudDetails | undefined> {
-  let cloudDetails = details;
-
-  if (details) {
-    const secretClient = await loadMainSecretClient();
-
-    if (isEaCCloudAzureDetails(cloudDetails)) {
-      const secreted = await eacGetSecrets(secretClient, {
-        AuthKey: cloudDetails.AuthKey,
-      });
-
-      cloudDetails = {
-        ...details,
-        ...secreted,
-      } as EaCCloudAzureDetails;
-    }
-  }
-
-  return cloudDetails;
-}
-
 export async function eacExists(
   denoKv: Deno.Kv,
   entLookup: string,
@@ -220,81 +192,6 @@ export async function eacExists(
   }
 
   return exists;
-}
-
-export async function eacGetSecrets(
-  secretClient: SecretClient,
-  toSecrets: Record<string, string>,
-): Promise<Record<string, string>> {
-  const secreted: Record<string, string> = {};
-
-  const secrets = Object.keys(toSecrets || {});
-
-  const calls = secrets.map((secret) => {
-    return new Promise((resolve, reject) => {
-      let toSecret = toSecrets[secret];
-
-      if (toSecret && toSecret.startsWith("$secret:")) {
-        try {
-          const secretName = toSecret.replace("$secret:", "");
-
-          secretClient.getSecret(secretName).then((response) => {
-            secreted[secret] = response.value!;
-
-            resolve(secreted[secret]);
-          });
-        } catch (err) {
-          console.error(err);
-        }
-      } else {
-        resolve(toSecret);
-      }
-    });
-  });
-
-  await Promise.all(calls);
-
-  return secreted;
-}
-
-export async function eacSetSecrets(
-  secretClient: SecretClient,
-  secretRoot: string,
-  toSecrets: Record<string, string | undefined>,
-): Promise<Record<string, string>> {
-  const secreted: Record<string, string> = {};
-
-  const secrets = Object.keys(toSecrets || {});
-
-  const calls = secrets.map((secret) => {
-    return new Promise((resolve, reject) => {
-      const secretName = secretRoot
-        ? paramCase(`${secretRoot}-${secret}`)
-        : paramCase(secret);
-
-      let toSecret = toSecrets[secret];
-
-      if (toSecret && !toSecret.startsWith("$secret:")) {
-        try {
-          secretClient
-            .setSecret(secretName, toSecret as string)
-            .then((response) => {
-              secreted[secret] = `$secret:${secretName}`;
-
-              resolve(secreted[secret]);
-            });
-        } catch (err) {
-          console.error(err);
-        }
-      } else {
-        resolve(toSecret);
-      }
-    });
-  });
-
-  await Promise.all(calls);
-
-  return secreted;
 }
 
 export async function invalidateProcessing(

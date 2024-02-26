@@ -1,6 +1,5 @@
+import { EaCMetadataBase, EverythingAsCode } from "@fathym/eac";
 import jsonpath from "npm:jsonpath";
-import { EaCMetadataBase } from "../../eac/EaCMetadataBase.ts";
-import { EverythingAsCode } from "../../eac/EverythingAsCode.ts";
 import { loadConnections } from "./loadConnections.ts";
 
 export async function resolveDynamicValues(

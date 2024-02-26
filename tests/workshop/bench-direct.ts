@@ -6,7 +6,7 @@ import {
   ChatPromptTemplate,
   createRetrievalChain,
   createStuffDocumentsChain,
-  PDFLoader,
+  // PDFLoader,
   RecursiveCharacterTextSplitter,
 } from "../test.deps.ts";
 
@@ -25,50 +25,50 @@ try {
     },
   });
 
-  if (generateVectorStore) {
-    const loader = new PDFLoader(
-      "./training/azure/data-explorer/azure-data-explorer.pdf",
-      {
-        // splitPages: false,
-      },
-    );
+  // if (generateVectorStore) {
+  //   const loader = new PDFLoader(
+  //     "./training/azure/data-explorer/azure-data-explorer.pdf",
+  //     {
+  //       // splitPages: false,
+  //     },
+  //   );
 
-    const docs = await loader.load();
+  //   const docs = await loader.load();
 
-    console.log(`Loaded document with ${docs.length} total pages`);
+  //   console.log(`Loaded document with ${docs.length} total pages`);
 
-    const kqlOverviewStartPage = 958;
+  //   const kqlOverviewStartPage = 958;
 
-    const kqlOverviewEndPage = 2985;
+  //   const kqlOverviewEndPage = 2985;
 
-    const kqlDocs = docs.filter(
-      (doc) =>
-        doc.metadata.loc.pageNumber >= kqlOverviewStartPage &&
-        doc.metadata.loc.pageNumber <= kqlOverviewEndPage,
-    );
+  //   const kqlDocs = docs.filter(
+  //     (doc) =>
+  //       doc.metadata.loc.pageNumber >= kqlOverviewStartPage &&
+  //       doc.metadata.loc.pageNumber <= kqlOverviewEndPage,
+  //   );
 
-    console.log(
-      `Loaded document with ${kqlDocs.length} total pages of KQL information`,
-    );
+  //   console.log(
+  //     `Loaded document with ${kqlDocs.length} total pages of KQL information`,
+  //   );
 
-    const splitter = new RecursiveCharacterTextSplitter();
+  //   const splitter = new RecursiveCharacterTextSplitter();
 
-    const docOutput = await splitter.splitDocuments(docs);
+  //   const docOutput = await splitter.splitDocuments(docs);
 
-    console.log(
-      `Generated ${docOutput.length} split documents for vector store.`,
-    );
+  //   console.log(
+  //     `Generated ${docOutput.length} split documents for vector store.`,
+  //   );
 
-    const docsToAdd = docOutput; //.slice(1000, 1250);
+  //   const docsToAdd = docOutput; //.slice(1000, 1250);
 
-    await vectorStore.addDocuments(docsToAdd);
+  //   await vectorStore.addDocuments(docsToAdd);
 
-    console.log(`Generated vector store with ${docsToAdd.length} documents`);
+  //   console.log(`Generated vector store with ${docsToAdd.length} documents`);
 
-    const resultOne = await vectorStore.similaritySearch("Tumbling Window", 5);
+  //   const resultOne = await vectorStore.similaritySearch("Tumbling Window", 5);
 
-    console.log(JSON.stringify(resultOne, null, 2));
-  }
+  //   console.log(JSON.stringify(resultOne, null, 2));
+  // }
 
   const model = new AzureChatOpenAI({
     modelName: "gpt-4",

@@ -7,7 +7,7 @@ on:
 env:
   MainBranch: main
   MainFormat: "${major}.${minor}.${patch}"
-  IMAGE_NAME: everything-as-code:latest
+  IMAGE_NAME: everything-as-code-api:latest
   ACR_REGISTRY: ${{ secrets.ACR_REGISTRY }}
   ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
   ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}

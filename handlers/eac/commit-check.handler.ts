@@ -1,9 +1,9 @@
 import { denoKv } from "../../configs/deno-kv.config.ts";
 import {
-  enqueueAtomic,
   enqueueAtomicOperation,
+  EverythingAsCode,
   listenQueueAtomic,
-} from "../../src/utils/deno-kv/helpers.ts";
+} from "@fathym/eac";
 import { EaCCommitCheckRequest } from "../../src/api/models/EaCCommitCheckRequest.ts";
 import { EaCHandlerCheckRequest } from "../../src/api/models/EaCHandlerCheckRequest.ts";
 import { EaCHandlerErrorResponse } from "../../src/api/models/EaCHandlerErrorResponse.ts";
@@ -15,7 +15,6 @@ import {
 } from "../../src/utils/eac/helpers.ts";
 import { merge } from "@fathym/common";
 import { EaCCommitRequest } from "../../src/api/models/EaCCommitRequest.ts";
-import { EverythingAsCode } from "../../src/eac/EverythingAsCode.ts";
 
 export async function handleEaCCommitCheckRequest(
   commitCheckReq: EaCCommitCheckRequest,

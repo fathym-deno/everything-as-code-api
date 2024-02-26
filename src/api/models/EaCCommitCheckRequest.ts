@@ -1,5 +1,4 @@
-import { EverythingAsCode } from "../../eac/EverythingAsCode.ts";
-import { DenoKVNonce } from "../../utils/deno-kv/DenoKVNonce.ts";
+import { DenoKVNonce, EverythingAsCode } from "@fathym/eac";
 import { EaCCommitRequest } from "./EaCCommitRequest.ts";
 import { EaCHandlerCheckRequest } from "./EaCHandlerCheckRequest.ts";
 

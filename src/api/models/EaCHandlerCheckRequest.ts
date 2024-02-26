@@ -1,5 +1,4 @@
-import { EaCMetadataBase } from "../../eac/EaCMetadataBase.ts";
-import { EverythingAsCode } from "../../eac/EverythingAsCode.ts";
+import { EaCMetadataBase, EverythingAsCode } from "@fathym/eac";
 
 export type EaCHandlerCheckRequest =
   & {

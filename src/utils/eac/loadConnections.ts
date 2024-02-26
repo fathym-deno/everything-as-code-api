@@ -1,6 +1,4 @@
-import { EaCMetadataBase } from "../../eac/EaCMetadataBase.ts";
-import { EverythingAsCode } from "../../eac/EverythingAsCode.ts";
-import { EaCHandler } from "../../eac/EaCHandler.ts";
+import { EaCHandler, EaCMetadataBase, EverythingAsCode } from "@fathym/eac";
 import { callEaCHandlerConnections } from "./helpers.ts";
 import { denoKv } from "../../../configs/deno-kv.config.ts";
 

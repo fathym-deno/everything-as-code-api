@@ -1,4 +1,4 @@
-import { EaCHandlers } from "../src/api/EaCHandlers.ts";
+import { EaCHandlers } from "@fathym/eac";
 
 export const eacHandlers: EaCHandlers = {
   Clouds: {

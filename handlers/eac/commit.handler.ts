@@ -1,9 +1,13 @@
 import { merge } from "@fathym/common";
 import { denoKv } from "../../configs/deno-kv.config.ts";
 import {
+  AtomicOperationHandler,
+  EaCHandler,
+  EaCMetadataBase,
   enqueueAtomicOperation,
+  EverythingAsCode,
   listenQueueAtomic,
-} from "../../src/utils/deno-kv/helpers.ts";
+} from "@fathym/eac";
 import { EaCCommitRequest } from "../../src/api/models/EaCCommitRequest.ts";
 import {
   callEaCHandler,
@@ -11,16 +15,12 @@ import {
   waitOnEaCProcessing,
 } from "../../src/utils/eac/helpers.ts";
 import { UserEaCRecord } from "../../src/api/UserEaCRecord.ts";
-import { EverythingAsCode } from "../../src/eac/EverythingAsCode.ts";
 import { EaCStatus } from "../../src/api/models/EaCStatus.ts";
 import { EaCStatusProcessingTypes } from "../../src/api/models/EaCStatusProcessingTypes.ts";
-import { EaCMetadataBase } from "../../src/eac/EaCMetadataBase.ts";
 import { EaCHandlerErrorResponse } from "../../src/api/models/EaCHandlerErrorResponse.ts";
 import { EaCHandlerCheckRequest } from "../../src/api/models/EaCHandlerCheckRequest.ts";
 import { EaCCommitCheckRequest } from "../../src/api/models/EaCCommitCheckRequest.ts";
 import { eacHandlers } from "../../configs/eac-handlers.config.ts";
-import { EaCHandler } from "../../src/eac/EaCHandler.ts";
-import { AtomicOperationHandler } from "../../src/utils/deno-kv/AtomicOperationHandler.ts";
 
 export async function handleEaCCommitRequest(commitReq: EaCCommitRequest) {
   console.log(`Processing EaC commit for ${commitReq.CommitID}`);

@@ -1,4 +1,4 @@
-import { EaCMetadataBase } from "../../eac/EaCMetadataBase.ts";
+import { EaCMetadataBase } from "@fathym/eac";
 import { EaCHandlerCheckRequest } from "./EaCHandlerCheckRequest.ts";
 
 export type EaCHandlerResponse = {

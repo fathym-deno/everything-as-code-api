@@ -1,7 +1,6 @@
 // deno-lint-ignore-file no-explicit-any
 import { denoKv } from "../../configs/deno-kv.config.ts";
-import { EverythingAsCode } from "../../src/eac/EverythingAsCode.ts";
-import { listenQueueAtomic } from "../../src/utils/deno-kv/helpers.ts";
+import { EverythingAsCode, listenQueueAtomic } from "@fathym/eac";
 import { EaCDeleteRequest } from "../../src/api/models/EaCDeleteRequest.ts";
 import {
   markEaCProcessed,

@@ -8,8 +8,8 @@
 import "$std/dotenv/load.ts";
 import "./src/eac/handlers.ts";
 
-import { start } from "$fresh/server.ts";
+import { Manifest, start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 import config from "./fresh.config.ts";
 
-await start(manifest, config);
+await start(manifest as Manifest, config);
