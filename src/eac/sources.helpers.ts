@@ -6,6 +6,7 @@ import {
   EaCSourceActionType,
   EaCSourceAsCode,
   EaCSourceConnectionAsCode,
+  encodeBase64,
   EverythingAsCode,
   EverythingAsCodeSources,
   getOrCreateRepository,
@@ -16,7 +17,6 @@ import {
 } from "../src.deps.ts";
 import sodium from "@sodium";
 import { Buffer } from "node:buffer";
-import { encodeBase64 } from "$std/encoding/base64.ts";
 
 export async function ensureSource(
   gitHubAppDetails: EaCGitHubAppDetails,
