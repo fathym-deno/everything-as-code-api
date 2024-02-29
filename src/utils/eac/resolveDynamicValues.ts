@@ -3,6 +3,7 @@ import jsonpath from "npm:jsonpath";
 import { loadConnections } from "./loadConnections.ts";
 
 export async function resolveDynamicValues(
+  denoKv: Deno.Kv,
   values: Record<string, string>,
   eac: EverythingAsCode,
   jwt: string,
@@ -31,6 +32,7 @@ export async function resolveDynamicValues(
   const valuesMap = {
     eac: resolveEaCValues(valueLookupsMap.eac, eac),
     connections: await resolveEaCConnectionValues(
+      denoKv,
       valueLookupsMap.connections,
       eac,
       jwt,
@@ -54,6 +56,7 @@ export async function resolveDynamicValues(
 }
 
 export async function resolveEaCConnectionValues(
+  denoKv: Deno.Kv,
   values: Record<string, string>,
   eac: EverythingAsCode,
   jwt: string,
@@ -79,6 +82,7 @@ export async function resolveEaCConnectionValues(
         }, {} as Record<string, EaCMetadataBase>);
 
         const conns = await loadConnections(
+          denoKv,
           eac,
           handler!,
           jwt,

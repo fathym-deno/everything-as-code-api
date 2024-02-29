@@ -12,6 +12,7 @@ import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
 import { EaCHandlerRequest } from "../../../../src/api/models/EaCHandlerRequest.ts";
 import { EaCHandlerResponse } from "../../../../src/api/models/EaCHandlerResponse.ts";
 import { resolveDynamicValues } from "../../../../src/utils/eac/resolveDynamicValues.ts";
+import { denoKv } from "../../../../configs/deno-kv.config.ts";
 
 export const handler: Handlers = {
   /**
@@ -41,6 +42,7 @@ export const handler: Handlers = {
 
     if (secretValue && !secretValue.startsWith("$secret:")) {
       const resolved = await resolveDynamicValues(
+        denoKv,
         {
           SecretValue: secretValue,
         },

@@ -42,6 +42,7 @@ export const handler: Handlers = {
 
       if (handler) {
         eacConnections[key] = await loadConnections(
+          denoKv,
           eac.value!,
           handler,
           ctx.state.JWT!,

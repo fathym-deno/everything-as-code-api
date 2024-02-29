@@ -4,9 +4,9 @@ import {
   EverythingAsCode,
 } from "../../src.deps.ts";
 import { callEaCHandlerConnections } from "./helpers.ts";
-import { denoKv } from "../../../configs/deno-kv.config.ts";
 
 export async function loadConnections(
+  denoKv: Deno.Kv,
   currentEaC: EverythingAsCode,
   handler: EaCHandler,
   jwt: string,
