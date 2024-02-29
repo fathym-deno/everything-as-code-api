@@ -13,9 +13,9 @@ import {
   Handlebars,
   loadOctokit,
   loadSecretClient,
+  sodium,
   tryGetRepository,
 } from "../src.deps.ts";
-import sodium from "@sodium";
 import { Buffer } from "node:buffer";
 
 export async function ensureSource(
