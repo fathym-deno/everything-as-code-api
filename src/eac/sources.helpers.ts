@@ -1,4 +1,5 @@
 import {
+  Buffer,
   configureRepository,
   ContentFile,
   eacGetSecrets,
@@ -16,7 +17,6 @@ import {
   sodium,
   tryGetRepository,
 } from "../src.deps.ts";
-import { Buffer } from "node:buffer";
 
 export async function ensureSource(
   gitHubAppDetails: EaCGitHubAppDetails,

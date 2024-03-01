@@ -3,10 +3,10 @@ import {
   EaCCloudAzureDetails,
   EaCDeviceDetails,
   EaCIoTAsCode,
+  IotHubClient,
+  IoTRegistry,
   loadAzureCloudCredentials,
 } from "../src.deps.ts";
-import { IotHubClient } from "npm:@azure/arm-iothub";
-import { Registry as IoTRegistry } from "npm:azure-iothub";
 import { EnsureIoTDevicesResponse } from "../api/models/EnsureIoTDevicesResponse.ts";
 
 export async function ensureIoTDevices(

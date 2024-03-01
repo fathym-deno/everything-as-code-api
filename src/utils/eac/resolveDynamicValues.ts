@@ -1,5 +1,4 @@
-import { EaCMetadataBase, EverythingAsCode } from "../../src.deps.ts";
-import jsonpath from "npm:jsonpath";
+import { EaCMetadataBase, EverythingAsCode, jsonpath } from "../../src.deps.ts";
 import { loadConnections } from "./loadConnections.ts";
 
 export async function resolveDynamicValues(
