@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import { respond } from "@fathym/common";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { EaCStatus } from "../../../../src/api/models/EaCStatus.ts";
 import { denoKv } from "../../../../configs/deno-kv.config.ts";
 import { EaCStatusProcessingTypes } from "../../../../src/api/models/EaCStatusProcessingTypes.ts";

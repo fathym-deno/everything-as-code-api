@@ -16,7 +16,7 @@ import {
   ensureSourceArtifacts,
   ensureSourceSecrets,
 } from "../../../../src/eac/sources.helpers.ts";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { EaCHandlerRequest } from "../../../../src/api/models/EaCHandlerRequest.ts";
 import { EaCHandlerResponse } from "../../../../src/api/models/EaCHandlerResponse.ts";
 import { EaCHandlerErrorResponse } from "../../../../src/api/models/EaCHandlerErrorResponse.ts";

@@ -13,7 +13,7 @@ import { IotHubClient } from "npm:@azure/arm-iothub";
 import { Registry as IoTRegistry } from "npm:azure-iothub";
 import { EaCHandlerConnectionsRequest } from "../../../../src/api/models/EaCHandlerConnectionsRequest.ts";
 import { EaCHandlerConnectionsResponse } from "../../../../src/api/models/EaCHandlerConnectionsResponse.ts";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 
 export const handler: Handlers = {
   /**

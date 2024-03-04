@@ -2,7 +2,7 @@
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import { respond } from "@fathym/common";
 import { EaCMetadataBase, EverythingAsCode } from "@fathym/eac";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { denoKv } from "../../../../configs/deno-kv.config.ts";
 import { loadConnections } from "../../../../src/utils/eac/loadConnections.ts";
 

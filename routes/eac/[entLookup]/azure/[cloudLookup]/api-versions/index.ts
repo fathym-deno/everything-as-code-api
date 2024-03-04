@@ -2,7 +2,7 @@
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import { merge, respond } from "@fathym/common";
 import { ResourceManagementClient } from "npm:@azure/arm-resources";
-import { EaCAPIUserState } from "../../../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../../../src/api/_EaCAPIUserState.ts";
 import { EaCServiceDefinitions } from "../../../../../../src/api/models/EaCServiceDefinitions.ts";
 import { denoKv } from "../../../../../../configs/deno-kv.config.ts";
 import {

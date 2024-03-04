@@ -3,7 +3,7 @@ import { FreshContext, Handlers } from "$fresh/server.ts";
 import { STATUS_CODE } from "$std/http/status.ts";
 import { respond } from "@fathym/common";
 import { enqueueAtomic, EverythingAsCode } from "@fathym/eac";
-import { EaCAPIUserState } from "../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../src/api/_EaCAPIUserState.ts";
 import { denoKv } from "../../../configs/deno-kv.config.ts";
 import { EaCCommitRequest } from "../../../src/api/models/EaCCommitRequest.ts";
 import { eacExists } from "../../../src/utils/eac/helpers.ts";

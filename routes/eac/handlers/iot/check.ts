@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import { respond } from "@fathym/common";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { EaCHandlerCheckResponse } from "../../../../src/api/models/EaCHandlerCheckResponse.ts";
 import { EaCHandlerIoTCheckRequest } from "../../../../src/api/models/EaCHandlerIoTCheckRequest.ts";
 

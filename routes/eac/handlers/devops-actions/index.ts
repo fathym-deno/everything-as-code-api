@@ -2,7 +2,7 @@
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import { respond } from "@fathym/common";
 import { EaCDevOpsActionAsCode, EverythingAsCodeSources } from "@fathym/eac";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { EaCHandlerRequest } from "../../../../src/api/models/EaCHandlerRequest.ts";
 import { EaCHandlerResponse } from "../../../../src/api/models/EaCHandlerResponse.ts";
 

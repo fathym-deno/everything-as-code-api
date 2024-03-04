@@ -5,7 +5,7 @@ import { respond } from "@fathym/common";
 import { EverythingAsCode, loadJwtConfig } from "@fathym/eac";
 import { denoKv } from "../../configs/deno-kv.config.ts";
 import { UserEaCRecord } from "../../src/api/UserEaCRecord.ts";
-import { EaCAPIUserState } from "../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../src/api/_EaCAPIUserState.ts";
 
 export const handler: Handlers = {
   /**

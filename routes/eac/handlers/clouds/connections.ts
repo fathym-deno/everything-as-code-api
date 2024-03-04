@@ -15,7 +15,7 @@ import {
   ResourceManagementClient,
 } from "npm:@azure/arm-resources";
 import { ClientSecretCredential } from "npm:@azure/identity";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { EaCHandlerConnectionsRequest } from "../../../../src/api/models/EaCHandlerConnectionsRequest.ts";
 import { EaCHandlerConnectionsResponse } from "../../../../src/api/models/EaCHandlerConnectionsResponse.ts";
 

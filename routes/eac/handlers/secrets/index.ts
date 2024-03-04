@@ -8,7 +8,7 @@ import {
   EverythingAsCodeClouds,
   loadSecretClient,
 } from "@fathym/eac";
-import { EaCAPIUserState } from "../../../../src/api/EaCAPIUserState.ts";
+import { EaCAPIUserState } from "../../../../src/api/_EaCAPIUserState.ts";
 import { EaCHandlerRequest } from "../../../../src/api/models/EaCHandlerRequest.ts";
 import { EaCHandlerResponse } from "../../../../src/api/models/EaCHandlerResponse.ts";
 import { resolveDynamicValues } from "../../../../src/utils/eac/resolveDynamicValues.ts";

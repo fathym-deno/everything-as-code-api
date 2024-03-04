@@ -2,7 +2,7 @@
 import { STATUS_CODE } from "$std/http/status.ts";
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import { respond } from "@fathym/common";
-import { EaCAPIState } from "../../src/api/EaCAPIState.ts";
+import { EaCAPIState } from "../../src/api/_EaCAPIState.ts";
 import { denoKv } from "../../configs/deno-kv.config.ts";
 import { UserEaCRecord } from "../../src/api/UserEaCRecord.ts";
 
