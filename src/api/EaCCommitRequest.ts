@@ -1,6 +1,6 @@
-import { DenoKVNonce, EverythingAsCode } from "../../src.deps.ts";
+import { DenoKVNonce, EverythingAsCode } from "@fathym/eac";
 
-export type EaCCommitRequest = DenoKVNonce & {
+export type EaCCommitRequest = {
   CommitID: string;
 
   EaC: EverythingAsCode;
@@ -10,7 +10,7 @@ export type EaCCommitRequest = DenoKVNonce & {
   ProcessingSeconds: number;
 
   Username: string;
-};
+} & DenoKVNonce;
 
 export function isEaCCommitRequest(req: unknown): req is EaCCommitRequest {
   const commitRequest = req as EaCCommitRequest;

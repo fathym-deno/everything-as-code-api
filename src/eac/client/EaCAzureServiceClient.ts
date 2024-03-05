@@ -1,6 +1,6 @@
 import { Location } from "npm:@azure/arm-subscriptions";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
-import { EaCServiceDefinitions } from "../../api/models/EaCServiceDefinitions.ts";
+import { EaCServiceDefinitions } from "../../api/EaCServiceDefinitions.ts";
 
 export class EaCAzureServiceClient extends EaCBaseClient {
   /** */

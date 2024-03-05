@@ -1,4 +1,4 @@
-import { ExplorerRequest } from "../../api/models/ExplorerRequest.ts";
+import { ExplorerRequest } from "../../api/ExplorerRequest.ts";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
 import { KustoResponseDataSet } from "npm:azure-kusto-data";
 

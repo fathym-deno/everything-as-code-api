@@ -1,6 +1,6 @@
 import { delay } from "../../src.deps.ts";
-import { EaCStatus } from "../../api/models/EaCStatus.ts";
-import { EaCStatusProcessingTypes } from "../../api/models/EaCStatusProcessingTypes.ts";
+import { EaCStatus } from "../../api/EaCStatus.ts";
+import { EaCStatusProcessingTypes } from "../../api/EaCStatusProcessingTypes.ts";
 import { EaCServiceClient } from "../../eac/client/EaCServiceClient.ts";
 import { loadEaCSvc } from "../../eac/client/clientFactories.ts";
 
@@ -57,7 +57,7 @@ export async function waitOnProcessing<T>(
   key: Deno.KvKey,
   msg: T,
   owner: string,
-  handler: (msg: T) => Promise<void>,
+  handler: (denoKv: Deno.Kv, msg: T) => Promise<void>,
   sleepFor = 250,
 ) {
   const processing = await denoKv.get<string>(key);
@@ -65,7 +65,7 @@ export async function waitOnProcessing<T>(
   if (processing.value && processing.value !== owner) {
     await delay(sleepFor);
 
-    await handler(msg);
+    await handler(denoKv, msg);
   }
 
   await denoKv.set(key, owner);
