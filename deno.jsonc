@@ -12,7 +12,7 @@
   },
   "lint": {
     "rules": {
-      "tags": ["fresh", "recommended"],
+      "tags": ["recommended"],
       "exclude": [
         "no-unused-vars",
         "ban-unused-ignore",
@@ -22,9 +22,8 @@
       ]
     }
   },
-  "exclude": ["**/_fresh/*"],
+  "exclude": [],
   "nodeModulesDir": false,
   "imports": {},
-  // "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
   "unstable": ["kv"]
 }
