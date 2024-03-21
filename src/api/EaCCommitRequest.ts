@@ -1,4 +1,5 @@
-import { DenoKVNonce, EverythingAsCode } from "../src.deps.ts";
+import { EverythingAsCode } from "../src.deps.ts";
+import { DenoKVNonce } from "../deno.deps.ts";
 
 export type EaCCommitRequest = {
   CommitID: string;
