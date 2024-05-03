@@ -1,3 +1,4 @@
+export * from "./AzureTenanatsRequest.ts";
 export * from "./EaCCommitRequest.ts";
 export * from "./EaCCommitResponse.ts";
 export * from "./EaCServiceDefinitions.ts";

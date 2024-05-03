@@ -1,6 +1,12 @@
-import { Location } from "npm:@azure/arm-subscriptions";
+import {
+  Location,
+  Subscription,
+  TenantIdDescription,
+} from "npm:@azure/arm-subscriptions";
+import { BillingAccount } from "npm:@azure/arm-billing";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
 import { EaCServiceDefinitions } from "../../api/EaCServiceDefinitions.ts";
+import { AzureTenanatsRequest } from "../../api/AzureTenanatsRequest.ts";
 
 export class EaCAzureServiceClient extends EaCBaseClient {
   /** */
@@ -9,6 +15,23 @@ export class EaCAzureServiceClient extends EaCBaseClient {
   }
 
   //#region API Methods
+  public async BillingAccounts(
+    entLookup: string,
+    azureAccessToken: string,
+  ): Promise<BillingAccount[]> {
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/azure/billing/accounts`),
+      {
+        method: "GET",
+        headers: this.loadHeaders({
+          "x-eac-azure-access-token": azureAccessToken,
+        }),
+      },
+    );
+
+    return await this.json(response);
+  }
+
   public async CloudAPIVersions(
     entLookup: string,
     cloudLookup: string,
@@ -78,6 +101,40 @@ export class EaCAzureServiceClient extends EaCBaseClient {
         method: "POST",
         headers: this.loadHeaders(),
         body: JSON.stringify(svcDefs),
+      },
+    );
+
+    return await this.json(response);
+  }
+
+  public async Subscriptions(
+    entLookup: string,
+    azureAccessToken: string,
+  ): Promise<Subscription[]> {
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/azure/subscriptions`),
+      {
+        method: "GET",
+        headers: this.loadHeaders({
+          "x-eac-azure-access-token": azureAccessToken,
+        }),
+      },
+    );
+
+    return await this.json(response);
+  }
+
+  public async Tenants(
+    entLookup: string,
+    azureAccessToken: string,
+  ): Promise<TenantIdDescription[]> {
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/azure/tenants`),
+      {
+        method: "GET",
+        headers: this.loadHeaders({
+          "x-eac-azure-access-token": azureAccessToken,
+        }),
       },
     );
 
