@@ -5,4 +5,5 @@ export * from "./EaCServiceDefinitions.ts";
 export * from "./EaCStatus.ts";
 export * from "./EaCStatusProcessingTypes.ts";
 export * from "./ExplorerRequest.ts";
+export * from "./UserEaCLicense.ts";
 export * from "./UserEaCRecord.ts";

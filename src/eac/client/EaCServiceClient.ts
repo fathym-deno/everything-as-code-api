@@ -4,6 +4,7 @@ import { EaCCommitResponse } from "../../api/EaCCommitResponse.ts";
 import { EaCStatus } from "../../api/EaCStatus.ts";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
 import { EaCStatusProcessingTypes } from "../../api/EaCStatusProcessingTypes.ts";
+import { UserEaCLicense } from "../../api/UserEaCLicense.ts";
 
 export class EaCServiceClient extends EaCBaseClient {
   /** */
@@ -12,6 +13,19 @@ export class EaCServiceClient extends EaCBaseClient {
   }
 
   //#region API Methods
+  public async CancelLicense(entLookup: string, licLookup: string) {
+    //: Promise<T> {
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
+      {
+        method: "DELETE",
+        headers: this.loadHeaders(),
+      },
+    );
+
+    return await this.json(response);
+  }
+
   public async Commit<T extends EverythingAsCode>(
     eac: T,
     processingSeconds: number,
@@ -100,6 +114,32 @@ export class EaCServiceClient extends EaCBaseClient {
     return await this.json(response);
   }
 
+  public async GetLicense(
+    entLookup: string,
+    licLookup: string,
+  ): Promise<UserEaCLicense & {}> {
+    //: Promise<T> {
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
+      {
+        headers: this.loadHeaders(),
+      },
+    );
+
+    return await this.json(response);
+  }
+
+  public async GetLicenses(
+    entLookup: string,
+  ): Promise<Record<string, UserEaCLicense>> {
+    //: Promise<T> {
+    const response = await fetch(this.loadClientUrl(`${entLookup}/licenses`), {
+      headers: this.loadHeaders(),
+    });
+
+    return await this.json(response);
+  }
+
   public async InviteUser(
     entLookup: string,
     userEaC: UserEaCRecord,
@@ -128,6 +168,28 @@ export class EaCServiceClient extends EaCBaseClient {
       ),
       {
         headers: this.loadHeaders(),
+      },
+    );
+
+    return await this.json(response);
+  }
+
+  public async LicenseSubscription(
+    entLookup: string,
+    licLookup: string,
+    planLookup: string,
+    priceLookup: string,
+  ) {
+    //: Promise<T> {
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
+      {
+        method: "POST",
+        headers: this.loadHeaders(),
+        body: JSON.stringify({
+          PlanLookup: planLookup,
+          PriceLookup: priceLookup,
+        }),
       },
     );
 
