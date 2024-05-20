@@ -117,7 +117,7 @@ export class EaCServiceClient extends EaCBaseClient {
   public async GetLicense(
     entLookup: string,
     licLookup: string,
-  ): Promise<UserEaCLicense & {}> {
+  ): Promise<{ Active: boolean; License: UserEaCLicense }> {
     //: Promise<T> {
     const response = await fetch(
       this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
