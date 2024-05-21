@@ -13,10 +13,16 @@ export class EaCServiceClient extends EaCBaseClient {
   }
 
   //#region API Methods
-  public async CancelLicense(entLookup: string, licLookup: string) {
+  public async CancelLicense(
+    entLookup: string,
+    username: string,
+    licLookup: string,
+  ) {
     //: Promise<T> {
     const response = await fetch(
-      this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
+      this.loadClientUrl(
+        `${entLookup}/licenses/${licLookup}?username=${username}`,
+      ),
       {
         method: "DELETE",
         headers: this.loadHeaders(),
@@ -116,11 +122,14 @@ export class EaCServiceClient extends EaCBaseClient {
 
   public async GetLicense(
     entLookup: string,
+    username: string,
     licLookup: string,
   ): Promise<{ Active: boolean; License: UserEaCLicense }> {
     //: Promise<T> {
     const response = await fetch(
-      this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
+      this.loadClientUrl(
+        `${entLookup}/licenses/${licLookup}?username=${username}`,
+      ),
       {
         headers: this.loadHeaders(),
       },
@@ -131,11 +140,15 @@ export class EaCServiceClient extends EaCBaseClient {
 
   public async GetLicenses(
     entLookup: string,
+    username: string,
   ): Promise<Record<string, UserEaCLicense>> {
     //: Promise<T> {
-    const response = await fetch(this.loadClientUrl(`${entLookup}/licenses`), {
-      headers: this.loadHeaders(),
-    });
+    const response = await fetch(
+      this.loadClientUrl(`${entLookup}/licenses?username=${username}`),
+      {
+        headers: this.loadHeaders(),
+      },
+    );
 
     return await this.json(response);
   }
@@ -176,13 +189,16 @@ export class EaCServiceClient extends EaCBaseClient {
 
   public async LicenseSubscription(
     entLookup: string,
+    username: string,
     licLookup: string,
     planLookup: string,
     priceLookup: string,
   ) {
     //: Promise<T> {
     const response = await fetch(
-      this.loadClientUrl(`${entLookup}/licenses/${licLookup}`),
+      this.loadClientUrl(
+        `${entLookup}/licenses/${licLookup}?username=${username}`,
+      ),
       {
         method: "POST",
         headers: this.loadHeaders(),
