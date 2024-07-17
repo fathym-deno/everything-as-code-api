@@ -1,11 +1,11 @@
 import "https://deno.land/std@0.220.1/dotenv/load.ts";
+import * as _parse from "npm:pdf-parse";
+import * as _azureSearch from "npm:@azure/search-documents";
 export { delay } from "https://deno.land/std@0.220.1/async/delay.ts";
 export {
   assert,
   assertEquals,
 } from "https://deno.land/std@0.220.1/testing/asserts.ts";
-import * as _parse from "npm:pdf-parse";
-import * as _azureSearch from "npm:@azure/search-documents";
 export {
   AzureChatOpenAI,
   AzureOpenAI,
