@@ -26,7 +26,14 @@ export async function waitForStatusWithFreshJwt(
     const eacJwt = await parentEaCSvc.JWT(entLookup, username);
 
     if (!eacJwt.Token) {
-      return null;
+      return {
+        EnterpriseLookup: entLookup,
+        ID: commitId,
+        Messages: { Operation: "Waiting for valid JWT" },
+        Processing: EaCStatusProcessingTypes.QUEUED,
+        StartTime: new Date(),
+        Username: username,
+      };
     }
     const eacSvc = await loadEaCSvc(eacJwt.Token);
 
