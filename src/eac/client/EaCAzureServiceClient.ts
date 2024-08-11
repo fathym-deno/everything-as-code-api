@@ -2,8 +2,8 @@ import {
   Location,
   Subscription,
   TenantIdDescription,
-} from "npm:@azure/arm-subscriptions";
-import { BillingAccount } from "npm:@azure/arm-billing";
+} from "npm:@azure/arm-subscriptions@5.1.0";
+import { BillingAccount } from "npm:@azure/arm-billing@4.1.0";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
 import { EaCServiceDefinitions } from "../../api/EaCServiceDefinitions.ts";
 import { AzureTenanatsRequest } from "../../api/AzureTenanatsRequest.ts";

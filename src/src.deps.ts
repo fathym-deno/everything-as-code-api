@@ -1,5 +1,5 @@
-export * from "https://deno.land/std@0.220.1/async/delay.ts";
-export * from "https://deno.land/std@0.220.1/encoding/base64.ts";
-export * from "https://deno.land/x/fathym_common@v0.0.185/mod.ts";
+export * from "jsr:@std/async@^1.0.3/delay";
+export * from "jsr:@std/encoding@^1.0.1/base64";
+export * from "jsr:@fathym/common@0.0.205";
 // export * from '../../everything-as-code/mod.ts';
-export * from "https://deno.land/x/fathym_everything_as_code@v0.0.415/mod.ts";
+export * from "jsr:@fathym/eac@0.0.423";

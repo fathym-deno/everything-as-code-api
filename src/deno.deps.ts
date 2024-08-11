@@ -1,4 +1,4 @@
-export * from "https://deno.land/x/fathym_everything_as_code@v0.0.415/deno.ts";
+export * from "jsr:@fathym/eac@0.0.423/deno";
 
-import Hndlbrs from "npm:handlebars/dist/handlebars.min.js";
+import Hndlbrs from "npm:handlebars@4.7.8/dist/handlebars.min.js";
 export const Handlebars = Hndlbrs;

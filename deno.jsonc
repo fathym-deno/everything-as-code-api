@@ -1,4 +1,9 @@
 {
+  "name": "@fathym/eac-api",
+  "version": "0.0.0",
+  "exports": {
+    ".": "./mod.ts"
+  },
   "tasks": {
     "build": "deno task build:fmt && deno task build:lint && deno task build:mod",
     "build:mod": "deno run -A mod.ts build",
@@ -7,8 +12,10 @@
     "build:tailwind": "deno run -A tailwind.config.ts build",
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
     "deploy": "deno task build && deno task test && ftm git",
-    "test": "deno test -A --allow-env .env tests/tests.ts --coverage=cov"
+    "test": "deno test -A --allow-env .env tests/tests.ts --coverage=cov",
+    "version": "deno run -A jsr:@fathym/common@0.0.205/version"
   },
+  "imports": {},
   "lint": {
     "rules": {
       "tags": ["recommended"],
@@ -23,6 +30,6 @@
   },
   "exclude": [],
   "nodeModulesDir": false,
-  "imports": {},
-  "unstable": ["kv"]
+  "unstable": ["kv"],
+  "lock": false
 }

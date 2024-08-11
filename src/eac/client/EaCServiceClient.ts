@@ -17,7 +17,7 @@ export class EaCServiceClient extends EaCBaseClient {
     entLookup: string,
     username: string,
     licLookup: string,
-  ) {
+  ): Promise<unknown> {
     //: Promise<T> {
     const response = await fetch(
       this.loadClientUrl(
@@ -193,7 +193,7 @@ export class EaCServiceClient extends EaCBaseClient {
     licLookup: string,
     planLookup: string,
     priceLookup: string,
-  ) {
+  ): Promise<unknown> {
     //: Promise<T> {
     const response = await fetch(
       this.loadClientUrl(
