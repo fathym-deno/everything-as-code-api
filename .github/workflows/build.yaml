@@ -1,23 +1,14 @@
-name: Build & Package
+name: Build & Publish
 
 permissions:
   contents: write
+  id-token: write
 
-on:
-  push:
-    branches:
-      - integration
-      - feature/**
-      - hotfix/**
-      - main
+on: push
 
 env:
   MainBranch: main
   MainFormat: '${major}.${minor}.${patch}'
-  IMAGE_NAME: everything-as-code:prerelease
-  ACR_REGISTRY: ${{ secrets.ACR_REGISTRY }}
-  ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
-  ACR_PASSWORD: ${{ secrets.ACR_PASSWORD }}
 
 jobs:
   build:
@@ -48,6 +39,14 @@ jobs:
         if: steps.vars.outputs.currentBranch != env.MainBranch
         run: echo 'format=${{ env.MainFormat }}-${{ steps.vars.outputs.currentBranch }}' >> $GITHUB_OUTPUT\
 
+      - name: Deno Setup
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: vx.x.x
+
+      - name: Deno Build
+        run: deno task build
+
       - name: Set Version
         id: version
         uses: paulhatch/semantic-version@v5.0.2
@@ -74,6 +73,12 @@ jobs:
       # - name: NPM Package Publish Prerelease
       #   if: steps.vars.outputs.currentBranch != env.MainBranch
       #   run: deno task npm:publish --tag ${{ steps.vars.outputs.currentBranch }}
+
+      - name: Version package
+        run: deno task version -- "${{ steps.version.outputs.version }}"
+
+      - name: Publish package
+        run: deno publish --allow-dirty
 
       - name: Tag commit ${{ steps.version.outputs.version }}
         run: |
