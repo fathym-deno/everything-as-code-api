@@ -30,7 +30,6 @@
       ]
     }
   },
-  "exclude": [],
   "nodeModulesDir": false,
   "unstable": ["kv"],
   "lock": false
