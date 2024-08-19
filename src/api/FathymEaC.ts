@@ -4,7 +4,7 @@ import {
   EverythingAsCodeGitHub,
   EverythingAsCodeIoT,
   EverythingAsCodeSources,
-} from "./src.deps.ts";
+} from "./.deps.ts";
 
 export type FathymEaC =
   & EverythingAsCode

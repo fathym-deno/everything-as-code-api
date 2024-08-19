@@ -1,10 +1,12 @@
-import { EverythingAsCode } from "../../src.deps.ts";
-import { UserEaCRecord } from "../../api/UserEaCRecord.ts";
-import { EaCCommitResponse } from "../../api/EaCCommitResponse.ts";
-import { EaCStatus } from "../../api/EaCStatus.ts";
+import {
+  EaCCommitResponse,
+  EaCStatus,
+  EaCStatusProcessingTypes,
+  EverythingAsCode,
+  UserEaCLicense,
+  UserEaCRecord,
+} from "./.deps.ts";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
-import { EaCStatusProcessingTypes } from "../../api/EaCStatusProcessingTypes.ts";
-import { UserEaCLicense } from "../../api/UserEaCLicense.ts";
 
 export class EaCServiceClient extends EaCBaseClient {
   /** */

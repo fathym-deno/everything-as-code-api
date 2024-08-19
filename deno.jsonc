@@ -2,11 +2,12 @@
   "name": "@fathym/eac-api",
   "version": "0.0.0",
   "exports": {
-    ".": "./mod.ts"
+    ".": "./src/api/.exports.ts",
+    "./client": "./src/client/.exports.ts",
+    "./status": "./src/status/.exports.ts"
   },
   "tasks": {
-    "build": "deno task build:fmt && deno task build:lint && deno task publish:check && deno task build:mod",
-    "build:mod": "deno run -A mod.ts build",
+    "build": "deno task build:fmt && deno task build:lint && deno task publish:check && deno task test",
     "build:fmt": "deno fmt",
     "build:lint": "deno lint",
     "build:tailwind": "deno run -A tailwind.config.ts build",
