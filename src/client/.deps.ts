@@ -9,8 +9,8 @@ export {
   type UserEaCRecord,
 } from "../api/.exports.ts";
 
-export { loadJwtConfig } from "jsr:@fathym/common@0";
-export type { EverythingAsCode } from "jsr:@fathym/eac@0";
+export { loadJwtConfig } from "jsr:@fathym/common@0.2.22";
+export type { EverythingAsCode } from "jsr:@fathym/eac@0.1.18";
 
 export type {
   Location,
