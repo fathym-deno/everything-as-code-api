@@ -1,4 +1,5 @@
-import { ExplorerRequest, KustoResponseDataSet } from "./.deps.ts";
+import { ExplorerRequest } from "./.deps.ts";
+import { KustoResponseDataSet } from "npm:azure-kusto-data@6.0.2";
 import { EaCBaseClient } from "./EaCBaseClient.ts";
 
 export class EaCExplorerServiceClient extends EaCBaseClient {
