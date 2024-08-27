@@ -9,10 +9,10 @@ export {
   type UserEaCRecord,
 } from "../api/.exports.ts";
 
-export { getPackageLogger } from "jsr:@fathym/common@0.2.31/log";
+export { getPackageLogger } from "jsr:@fathym/common@0.2.33/log";
 
-export { loadJwtConfig } from "jsr:@fathym/common@0.2.31";
-export type { EverythingAsCode } from "jsr:@fathym/eac@0.1.20";
+export { loadJwtConfig } from "jsr:@fathym/common@0.2.33";
+export type { EverythingAsCode } from "jsr:@fathym/eac@0.1.21";
 
 export type {
   Location,
