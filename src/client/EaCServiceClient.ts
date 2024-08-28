@@ -3,6 +3,7 @@ import {
   EaCStatus,
   EaCStatusProcessingTypes,
   EverythingAsCode,
+  NullableArrayOrObject,
   UserEaCLicense,
   UserEaCRecord,
 } from "./.deps.ts";
@@ -96,7 +97,7 @@ export class EaCServiceClient extends EaCBaseClient {
   }
 
   public async Delete(
-    eac: EverythingAsCode,
+    eac: NullableArrayOrObject<EverythingAsCode>,
     archive: boolean,
     processingSeconds: number,
   ): Promise<EaCCommitResponse> {

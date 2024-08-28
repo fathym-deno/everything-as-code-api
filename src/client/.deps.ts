@@ -10,6 +10,7 @@ export {
 } from "../api/.exports.ts";
 
 export { getPackageLogger } from "jsr:@fathym/common@0.2.33/log";
+export { type NullableArrayOrObject } from "jsr:@fathym/common@0.2.33/types";
 
 export { loadJwtConfig } from "jsr:@fathym/common@0.2.33";
 export type { EverythingAsCode } from "jsr:@fathym/eac@0.1.21";
