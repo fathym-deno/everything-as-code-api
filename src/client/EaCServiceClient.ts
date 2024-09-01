@@ -96,8 +96,8 @@ export class EaCServiceClient extends EaCBaseClient {
     return await this.json(response);
   }
 
-  public async Delete(
-    eac: NullableArrayOrObject<EverythingAsCode>,
+  public async Delete<TEaC extends EverythingAsCode = EverythingAsCode>(
+    eac: NullableArrayOrObject<TEaC>,
     archive: boolean,
     processingSeconds: number,
   ): Promise<EaCCommitResponse> {
