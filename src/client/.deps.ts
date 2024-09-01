@@ -14,7 +14,7 @@ export { type NullableArrayOrObject } from "jsr:@fathym/common@0.2.46/types";
 
 export { loadJwtConfig } from "jsr:@fathym/common@0.2.46";
 
-export type { EverythingAsCode } from "jsr:@fathym/eac@0.1.32";
+export type { EverythingAsCode } from "jsr:@fathym/eac@0.1.33";
 
 export type {
   Location,
