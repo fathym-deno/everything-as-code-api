@@ -28,7 +28,7 @@ export class EaCBaseClient {
     response: Response,
     defaultResp: T = {} as T,
   ): Promise<T> {
-    const logger = await getPackageLogger("client");
+    const logger = await getPackageLogger(import.meta, "client");
 
     const text = await response.text();
 
