@@ -18,7 +18,15 @@ export async function loadEaCSvc(
   username?: string,
 ): Promise<EaCServiceClient> {
   if (!eacApiKeyEntLookup) {
-    eacApiKeyEntLookup = Deno.env.get("EAC_API_KEY")!;
+    eacApiKeyEntLookup = Deno.env.get("EAC_API_KEY");
+
+    if (!eacApiKeyEntLookup) {
+      eacApiKeyEntLookup = Deno.env.get("EAC_API_ENTERPRISE_LOOKUP");
+
+      if (eacApiKeyEntLookup) {
+        username = Deno.env.get("EAC_API_USERNAME");
+      }
+    }
   }
 
   if (username) {
@@ -33,7 +41,7 @@ export async function loadEaCSvc(
 
   const eacBaseUrl = Deno.env.get("EAC_API_BASE_URL")!;
 
-  return new EaCServiceClient(new URL(eacBaseUrl), eacApiKeyEntLookup);
+  return new EaCServiceClient(new URL(eacBaseUrl), eacApiKeyEntLookup ?? "");
 }
 
 export async function loadEaCAzureSvc(
