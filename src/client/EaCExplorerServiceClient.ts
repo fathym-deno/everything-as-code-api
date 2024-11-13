@@ -4,7 +4,7 @@ import { EaCBaseClient } from "./EaCBaseClient.ts";
 
 export class EaCExplorerServiceClient extends EaCBaseClient {
   /** */
-  constructor(protected baseUrl: URL, protected apiToken: string) {
+  constructor(baseUrl: URL, apiToken: string) {
     super(baseUrl, apiToken);
   }
 
